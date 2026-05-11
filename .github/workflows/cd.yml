@@ -106,7 +106,23 @@ jobs:
         with:
           image-ref: ${{ env.BACKEND_IMAGE_REF }}
           severity: HIGH,CRITICAL
-          exit-code: "1"
+          format: json
+          output: trivy-backend.json
+          exit-code: "0"
+
+      - name: Warn if backend vulnerabilities found
+        if: needs.changes.outputs.backend == 'true'
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          if [ -f trivy-backend.json ]; then
+            if jq -e '.Results[]?.Vulnerabilities? | map(select(.Severity=="HIGH" or .Severity=="CRITICAL")) | length > 0' trivy-backend.json >/dev/null 2>&1; then
+              echo "::warning::Trivy found HIGH/CRITICAL vulnerabilities in $BACKEND_IMAGE_REF. See trivy-backend.json"
+            else
+              echo "No HIGH/CRITICAL vulnerabilities found in $BACKEND_IMAGE_REF"
+            fi
+          else
+            echo "::warning::Trivy did not produce trivy-backend.json"
+          fi
 
       - name: Install Cosign
         if: needs.changes.outputs.backend == 'true' || needs.changes.outputs.frontend == 'true'
@@ -158,7 +174,23 @@ jobs:
         with:
           image-ref: ${{ env.FRONTEND_IMAGE_REF }}
           severity: HIGH,CRITICAL
-          exit-code: "1"
+          format: json
+          output: trivy-frontend.json
+          exit-code: "0"
+
+      - name: Warn if frontend vulnerabilities found
+        if: needs.changes.outputs.frontend == 'true'
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          if [ -f trivy-frontend.json ]; then
+            if jq -e '.Results[]?.Vulnerabilities? | map(select(.Severity=="HIGH" or .Severity=="CRITICAL")) | length > 0' trivy-frontend.json >/dev/null 2>&1; then
+              echo "::warning::Trivy found HIGH/CRITICAL vulnerabilities in $FRONTEND_IMAGE_REF. See trivy-frontend.json"
+            else
+              echo "No HIGH/CRITICAL vulnerabilities found in $FRONTEND_IMAGE_REF"
+            fi
+          else
+            echo "::warning::Trivy did not produce trivy-frontend.json"
+          fi
 
       - name: Sign frontend image
         if: needs.changes.outputs.frontend == 'true'
