@@ -1,151 +1,110 @@
-# 🏫 School Dashboard
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/header/grid.svg?title=School+Dashboard&amp;subtitle=GGL+lobby+information%2C+rebuilt+as+a+calm+real-time+school+dashboard.&amp;logo=https%3A%2F%2Farchive.org%2Fdownload%2Fggl-logo-head-only%2FGoethe-Nur-Kopf.png&amp;logoColor=c7ceda&amp;mode=dark" /><img alt="School Dashboard - GGL lobby information rebuilt as a calm real-time school dashboard" src="https://shieldcn.dev/header/grid.svg?title=School+Dashboard&amp;subtitle=GGL+lobby+information%2C+rebuilt+as+a+calm+real-time+school+dashboard.&amp;logo=https%3A%2F%2Farchive.org%2Fdownload%2Fggl-logo-head-only%2FGoethe-Nur-Kopf.png&amp;logoColor=c7ceda&amp;mode=light" /></picture>
+</p>
 
-![Status](https://img.shields.io/badge/status-under%20development-yellow)
-![Version](https://img.shields.io/badge/version-1.19.19-blue)
-![License](https://img.shields.io/badge/license-BSD%203--Clause-green)
-[![React Doctor](https://www.react.doctor/share/badge?p=frontend&s=96&w=14&f=7)](https://www.react.doctor/share?p=frontend&s=96&w=14&f=7)
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/zzackllack/school-dashboard.svg?variant=secondary" /><img alt="CI" src="https://shieldcn.dev/github/ci/zzackllack/school-dashboard.svg?variant=secondary&amp;mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/zzackllack/school-dashboard.svg?variant=secondary" /><img alt="License" src="https://shieldcn.dev/github/license/zzackllack/school-dashboard.svg?variant=secondary&amp;mode=light" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/Frontend-TanStack_Start-0f766e.svg?variant=secondary&amp;logo=react" /><img alt="Frontend - TanStack Start" src="https://shieldcn.dev/badge/Frontend-TanStack_Start-0f766e.svg?variant=secondary&amp;mode=light&amp;logo=react" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/Backend-Spring_Boot-6db33f.svg?variant=secondary&amp;logo=springboot" /><img alt="Backend - Spring Boot" src="https://shieldcn.dev/badge/Backend-Spring_Boot-6db33f.svg?variant=secondary&amp;mode=light&amp;logo=springboot" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/Package_mgr-pnpm-F69220.svg?variant=secondary&amp;logo=pnpm" /><img alt="Package manager - pnpm" src="https://shieldcn.dev/badge/Package_mgr-pnpm-F69220.svg?variant=secondary&amp;mode=light&amp;logo=pnpm" /></picture>
+</p>
 
-> A modern, intuitive dashboard designed originally for Goethe Gymnasium Lichterfelde (GGL) to transform the lobby information display into a comprehensive school information hub.
+<p align="center">
+  <strong>A production dashboard for Goethe Gymnasium Lichterfelde that turns one passive lobby screen into a useful, readable school information hub.</strong>
+</p>
 
-## 📖 Overview
+<p align="center">
+  <a href="#live-at-ggl">Live at GGL</a> ·
+  <a href="#what-it-shows">What it shows</a> ·
+  <a href="#project-state">Project state</a> ·
+  <a href="#developer-notes">Developer notes</a>
+</p>
 
-The School Dashboard was created to replace the outdated and clumsy substitution plan display in the lobby of Goethe Gymnasium Lichterfelde. Built with React and Spring Boot, it provides a centralized hub for students, teachers, and staff to access critical updates throughout the school day with a clean, responsive design.
+## Live at GGL
 
-While developed specifically for GGL, this application is designed to be adaptable for any school using the DSBmobile system for substitution plans.
+This dashboard is not just a MVP. It has been running on two locations at Goethe Gymnasium Lichterfelde, showing the substitution plan, weather, holidays, calendar events, and nearby public transport where students actually pass by.
 
----
+<p align="center">
+  <img src=".github/images/live/loc-1.jpeg" alt="School Dashboard running on a physical lobby display at Goethe Gymnasium Lichterfelde" width="31%" style="border-radius: 16px;">
+  <img src=".github/images/live/loc-1-1.jpeg" alt="Close view of the production school dashboard on the lobby screen" width="31%" style="border-radius: 16px;">
+  <img src=".github/images/live/loc-2.jpeg" alt="Side view of the installed dashboard display in the school building" width="31%" style="border-radius: 16px;">
+</p>
 
-## 📸 Screenshots
+## Why this exists
 
-<div align="center">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px;">
-    <div style="flex-basis: 100%;">
-      <h3>Overview</h3>
-      <img src=".github/images/dashboard-preview.png" alt="Dashboard Preview" style="max-width: 100%; height: auto;">
-    </div>
-  </div>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0px;">
-    <div style="flex-basis: 25%;">
-      <h3>Holiday Module</h3>
-      <img src=".github/images/holidays.png" alt="Transportation Preview" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex-basis: 25%;">
-      <h3>Calendar Module</h3>
-      <img src=".github/images/calendar.png" alt="Calendar Preview" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex-basis: 25%;">
-      <h3>Transportation Module</h3>
-      <img src=".github/images/navigation.png" alt="Transportation Preview" style="max-width: 100%; height: auto;">
-    </div>
-    <div style="flex-basis: 25%;">
-      <h3>Weather Module</h3>
-      <img src=".github/images/weather.png" alt="Weather Preview" style="max-width: 100%; height: auto;">
-    </div>
-  </div>
-</div>
+The old lobby display was hard to read, visually dated, and mostly limited to substitution information. School Dashboard was built to collect the information students and staff repeatedly need during the day into one calm, glanceable display: substitutions, weather, public transport, school events, holidays, and time.
 
----
-## ✨ Features
+It started as a GGL-specific project, but the structure is intentionally adaptable for other schools using DSBmobile and similar public data sources.
 
-### Current Features
+## What it shows
 
-- **📋 Substitution Plan Integration**
-  - Real-time connection to DSBmobile API
-  - Clear, organized display of class changes
-  - Cached updates for performance optimization
+| Area | What students see | Data source / integration |
+| --- | --- | --- |
+| 📋 Substitution plan | Current class changes, including course-level changes for upper grades, with cached fallback data when upstream calls fail | DSBmobile via a Java integration |
+| 🌤️ Weather | Current conditions and forecast cards | Open-Meteo |
+| 🚌 Public transport | Nearby bus and train departures, route information, and delays | BVG / VBB transport API |
+| 📅 Calendar | Upcoming school events and important dates | iCal calendar feed |
+| 🏖️ Holidays | Berlin school holiday information | Senatsverwaltung für Bildung, Jugend und Familie Berlin |
+| 🕒 Clock | Large date and time display for the lobby screen | Browser/runtime time |
 
-- **🌤️ Weather Forecasts**
-  - Current conditions and temperature
-  - Daily forecast visualization
-  - Open-Meteo API integration for accurate data
+## Technical shape
 
-- **🚌 Transportation Schedules**
-  - Real-time bus and train departures
-  - Route information and delays
-  - Nearest stop information
-  - BVG API integration for Berlin transportation data
+| Layer | Stack |
+| --- | --- |
+| 🖥️ Frontend | React 19, TypeScript, TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, Vite, Nitro |
+| ☕ Backend | Java 21, Spring Boot, REST endpoints, caching, Flyway migrations |
+| 🗄️ Data | H2 for development, PostgreSQL 17 for production |
+| 🧪 Testing | Vitest, Playwright, JUnit 5, Mockito |
+| 🚢 Deployment | Backend via Docker, frontend via Cloudflare Workers, currently hosted on private infrastructure |
 
-- **⏰ Live Clock**
-  - Current time and date display
-  - Visual time tracking
+## Project state
 
-- **📊 School Event Calendar**
-  - Upcoming events visualization
-  - Important dates and deadlines
-  - Integration of any iCal calendar
+This project is feature-complete for its original school use case. I have finished my Abitur and am leaving the school, so I do not plan to keep adding product features myself.
 
-- **🏖️ Upcoming Holiday display**
-  - Display of upcoming holidays for Berlin
-  - Data provided by "Senatsverwaltung für Bildung, Jugend und Familie Berlin"
+The repository may continue under the school's GitHub organization, and I will still take care of critical security updates, hosting-related maintenance, and serious operational issues where needed.
 
-### 🔄 Planned Features
+| Phase | Status |
+| --- | --- |
+| Core API integration and first dashboard UI | ✅ Done |
+| Additional modules and visual refinement | ✅ Done |
+| Testing, performance, and deployment hardening | ✅ Done |
+| Documentation refresh | ✅ Done |
+| New feature development by original maintainer | 🛠️ Maintenance only |
 
-- **📱 Mobile Responsiveness**
-  - Optimize display for various device sizes
-  - Touch-friendly interface for tablets
+## Screenshots
 
-- **🔔 Notification System**
-  - Important announcements and alerts
-  - Customizable notifications based on user preferences
+<details>
+<summary>Open application screenshots (Legacy)</summary>
 
-- **🎨 Customizable Themes**
-  - Light/dark mode toggle
-  - School color integration
+<br>
 
----
+<p align="center">
+  <img src=".github/images/screenshot/dashboard-preview.png" alt="School Dashboard overview screenshot" width="100%" style="border-radius: 12px;">
+</p>
 
-## 🛠️ Technical Implementation
+<p align="center">
+  <img src=".github/images/screenshot/holidays.png" alt="Holiday module screenshot" width="24%" style="border-radius: 12px;">
+  <img src=".github/images/screenshot/calendar.png" alt="Calendar module screenshot" width="24%" style="border-radius: 12px;">
+  <img src=".github/images/screenshot/navigation.png" alt="Transportation module screenshot" width="24%" style="border-radius: 12px;">
+  <img src=".github/images/screenshot/weather.png" alt="Weather module screenshot" width="24%" style="border-radius: 12px;">
+</p>
 
-### Frontend
+</details>
 
-- TanStack Start (React 19) with TypeScript
-- TanStack Router (file-based routing)
-- Tailwind CSS for styling
-- Vite + Nitro adapter for development and production builds
 
-### Backend
+## Developer notes
 
-- Spring Boot 3.2 Java backend
-- RESTful API design
-- Caching for performance optimization
-
-## 🧰 API Integration Challenges
-
-The integration with DSBmobile API was a significant challenge in this project. We initially attempted implementation using various Python libraries, which resulted in:
-
-- 8+ hours of troubleshooting authentication issues
-- Inconsistent data payloads
-- Undocumented API changes
-
-After these frustrations, we discovered and implemented a 6-year-old Java library that perfectly handles the DSBmobile integration. This discovery was a breakthrough moment for our project, enabling us to finally move forward with the core functionality.
-
-> 💡 **Lesson Learned**: Sometimes the best solution isn't the newest one. The robust Java implementation from 2018 outperformed modern alternatives.
-
-### 😤 The DSBmobile Struggle
-
-Working with DSBmobile has been an exercise in frustration due to heinekingmedia's approach to their platform:
-
-- **No Public API**: Despite being used by thousands of schools, there's no official, documented API for developers
-- **Zero Transparency**: Changes to the backend occur without warning, breaking third-party integrations
-- **Artificial Barriers**: Simple data that should be easily accessible is obscured behind proprietary interfaces
-
-This opacity has forced us to rely on reverse-engineered solutions, creating unnecessary technical debt and development delays for what should be a straightforward integration.
-
----
-
-## 🚀 Getting Started
-
-## Development
+<details>
+<summary>Quick local setup</summary>
 
 ### Prerequisites
 
 - JDK 21
-- Node.js 24+ and pnpm (enable via `corepack enable`)
-- Maven (only needed once to bootstrap Maven Wrapper if wrapper files are missing)
+- Node.js 24+ with pnpm enabled through `corepack enable`
+- Maven, only needed once if Maven Wrapper files are missing
 
-### Installation
-
-TL;DR:
+### Start locally
 
 ```bash
 git clone https://github.com/Zzacklack/school-dashboard.git
@@ -154,33 +113,26 @@ pnpm run setup
 pnpm run dev
 ```
 
-`pnpm run setup` now includes an interactive credential/URL bootstrap and writes:
+`pnpm run setup` performs the local credential and URL bootstrap and writes:
 
-- `Backend/.env` (backend secrets and Spring env overrides)
-- `Frontend/.env` (frontend backend target URL)
+- `Backend/.env`
+- `Frontend/.env`
 
 These files are local-only and must never be committed.
 
-### Backend (Spring Boot)
+Local URLs:
 
-The monorepo helper scripts prefer Maven Wrapper (`Backend/mvnw` / `Backend/mvnw.cmd`) and fall back to system Maven if wrapper files are missing.
-Backend uses a single committed config file: `Backend/src/main/resources/application.properties`.
-Every runtime value is read from environment variables (with safe defaults where appropriate).
+- Frontend: <http://localhost:3000>
+- Backend API: <http://localhost:8080>
 
-- **Install dependencies + local env bootstrap**
+</details>
 
-  ```bash
-  pnpm run setup
-  ```
+<details>
+<summary>Backend and database notes</summary>
 
-  If you need to regenerate credentials/URLs later, run:
+The backend uses one committed Spring configuration file at `Backend/src/main/resources/application.properties`. Runtime values are provided through environment variables, with safe defaults where possible.
 
-  ```bash
-  pnpm run setup:env
-  ```
-
- You can override any Spring property using environment variables (Spring Boot relaxed binding).
-  Examples:
+Common overrides:
 
 - `DSB_USERNAME` -> `dsb.username`
 - `DSB_PASSWORD` -> `dsb.password`
@@ -188,89 +140,42 @@ Every runtime value is read from environment variables (with safe defaults where
 - `SPRING_DATASOURCE_URL` -> `spring.datasource.url`
 - `SERVER_SERVLET_SESSION_COOKIE_SECURE` -> `server.servlet.session.cookie.secure`
 
-  Session timeout/cookie notes:
+Session and cookie notes:
 
 - `SECURITY_SESSION_IDLE_TIMEOUT` controls app-level idle invalidation.
-- `SERVER_SERVLET_SESSION_TIMEOUT` optionally sets container session timeout; the shorter timeout effectively applies.
+- `SERVER_SERVLET_SESSION_TIMEOUT` can set the container session timeout; the shorter timeout effectively applies.
 - If `SECURITY_CORS_ALLOWED_ORIGINS` includes `http://localhost`, set `SERVER_SERVLET_SESSION_COOKIE_SECURE=false` for local HTTP cookie-based auth.
 
-- **Database migrations** – Flyway runs automatically on startup. Production PostgreSQL migrations live under `Backend/src/main/resources/db/migration/postgresql`, local H2 migrations under `Backend/src/main/resources/db/migration/h2`. To apply schema changes, add matching `V{next}__description.sql` files and restart the backend.
+Flyway runs automatically on startup. Production PostgreSQL migrations live under `Backend/src/main/resources/db/migration/postgresql`; local H2 migrations live under `Backend/src/main/resources/db/migration/h2`.
 
-- **Start the dev server** (hot reload, no jar required)
+Useful commands:
 
-  ```bash
-  mvn spring-boot:run
-  ```
+```bash
+mvn -f Backend/pom.xml spring-boot:run
+mvn -f Backend/pom.xml test
+mvn -f Backend/pom.xml clean package -DskipTests
+```
 
-- **Run tests**
+The local H2 database persists plan snapshots under `Backend/data/`.
 
-  ```bash
-  mvn test
-  ```
+</details>
 
-- **Build an executable jar** (skips tests for faster iteration)
+<details>
+<summary>Frontend, checks, and CI</summary>
 
-  ```bash
-  mvn clean package -DskipTests
-  ```
+Frontend commands:
 
-  The local H2 database persists plan snapshots under `Backend/data/`.
+```bash
+pnpm install --frozen-lockfile
+pnpm --dir Frontend run dev
+pnpm --dir Frontend run build
+pnpm --dir Frontend run lint
+pnpm --dir Frontend run test:unit
+pnpm --dir Frontend run test:integration
+pnpm --dir Frontend run test:web
+```
 
-### Backend API Endpoints
-
-All endpoints are served from the backend base URL (default: `http://localhost:8080`).
-
-- `GET /health` - Lightweight health response with status + timestamp.
-- `GET /api/substitution/plans` - Substitution plan data (cached fallback on errors).
-- `GET /api/dsb/timetables` - Raw DSBmobile timetables list.
-- `GET /api/dsb/news` - DSBmobile news payload.
-- `GET /api/calendar/events?limit=5` - Parsed calendar events (epoch millis + `allDay`).
-- `GET /error` - Error page handler (HTML).
-
-If actuator endpoints are enabled (see `management.endpoints.web.exposure.include`), you can also use:
-
-- `GET /actuator/health`
-- `GET /actuator/info`
-- `GET /actuator/metrics`
-- `GET /actuator/env`
-
-### Frontend (TanStack Start)
-
-- **Install dependencies**
-
-  ```bash
-  pnpm install --frozen-lockfile
-  ```
-
-  `Frontend/.env` is generated by `pnpm run setup` and used automatically by Vite.
-
-- **Start the dev server**
-
-  ```bash
-  pnpm --dir Frontend run dev
-  ```
-
-- **Run checks**
-
-  ```bash
-  pnpm --dir Frontend run build   # production bundle
-  pnpm --dir Frontend run lint    # optional lint pass
-  pnpm --dir Frontend run test:unit
-  pnpm --dir Frontend run test:integration
-  pnpm --dir Frontend run test:web
-  ```
-
-### Code Quality and CI/CD
-
-- **Formatting**
-  - Backend: Spotless (`mvn -f Backend/pom.xml spotless:check`)
-  - Frontend: Prettier (`pnpm --dir Frontend run format:check`)
-- **Linting**
-  - Frontend: ESLint (`pnpm --dir Frontend run lint`)
-- **CI/CD**
-  - GitHub Actions workflows for CI, CodeQL, and Docker image publishing
-
-Monorepo helpers from the repo root:
+Repository-level helpers:
 
 ```bash
 pnpm run format:check
@@ -280,159 +185,107 @@ pnpm run test
 pnpm run build
 ```
 
-### Access the application
+CI covers formatting, tests, CodeQL, and Docker image publishing through GitHub Actions.
 
-- Frontend: <http://localhost:3000>
-- Backend API: <http://localhost:8080>
+</details>
 
-### Cloudflare Workers (Frontend Only)
+<details>
+<summary>Backend API endpoints</summary>
 
-This repository now supports deploying only `Frontend/` with Wrangler (Cloudflare Workers static assets):
+All endpoints are served from the backend base URL, usually `http://localhost:8080`.
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /health` | Lightweight health response with status and timestamp |
+| `GET /api/substitution/plans` | Substitution plan data with cached fallback on errors |
+| `GET /api/dsb/timetables` | Raw DSBmobile timetables list |
+| `GET /api/dsb/news` | DSBmobile news payload |
+| `GET /api/calendar/events?limit=5` | Parsed calendar events with epoch millis and `allDay` |
+| `GET /error` | HTML error page handler |
+
+Optional actuator endpoints depend on `management.endpoints.web.exposure.include`:
+
+- `GET /actuator/health`
+- `GET /actuator/info`
+- `GET /actuator/metrics`
+- `GET /actuator/env`
+
+</details>
+
+<details>
+<summary>Production deployment</summary>
+
+Backend production deployments use Docker and PostgreSQL. Frontend deployment is configured for Cloudflare Workers.
+
+Frontend Workers configuration:
 
 - Wrangler config: `Frontend/wrangler.toml`
 - Production domain: `goethe-dashboard.zacklack.de`
-- Preview URLs: enabled via `preview_urls = true` and `workers_dev = true`
+- Preview URLs are enabled through `preview_urls = true` and `workers_dev = true`
 
-Cloudflare-managed build/deploy (Workers Builds):
+Cloudflare Workers build settings:
 
-1. In Cloudflare Workers, connect the GitHub repository.
-2. Build settings:
-   - Root directory: repository root (`/`)
-   - Build command: `pnpm --dir Frontend run build:workers`
-   - Deploy command: `pnpm --dir Frontend run deploy:workers`
-   - Non-production branch deploy command: `pnpm --dir Frontend run deploy:workers:preview`
+- Root directory: repository root (`/`)
+- Build command: `pnpm --dir Frontend run build:workers`
+- Deploy command: `pnpm --dir Frontend run deploy:workers`
+- Non-production branch deploy command: `pnpm --dir Frontend run deploy:workers:preview`
 
-## Production
+Backend environment essentials:
 
-### Prerequisites
+```bash
+SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/school_dashboard
+SPRING_DATASOURCE_USERNAME=school_dashboard
+SPRING_DATASOURCE_PASSWORD=<strong-password>
+SPRING_FLYWAY_LOCATIONS=classpath:db/migration/postgresql
+```
 
-- Docker
-- Docker Compose
+Docker deployment:
 
-### Configuration
+```bash
+cd Docker
+docker compose -f docker-compose.yaml build
+docker compose -f docker-compose.yaml up -d
+docker compose -f docker-compose.yaml ps
+```
 
-1. **Configure the Backend**:
+Legacy H2 backups can be imported into PostgreSQL:
 
-- Provide required credentials through environment variables (e.g. add a `.env` file in the `Docker/` directory or inject values in your CI/CD system). Typical variables include `DSB_USERNAME`, `DSB_PASSWORD`, and any optional Spring overrides.
-- Configure PostgreSQL connectivity for backend:
-  - `SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/school_dashboard`
-  - `SPRING_DATASOURCE_USERNAME=school_dashboard`
-  - `SPRING_DATASOURCE_PASSWORD=<strong-password>`
-  - `SPRING_FLYWAY_LOCATIONS=classpath:db/migration/postgresql`
-- Persistent storage for PostgreSQL is wired via the `postgres-data` volume. Create regular backups of that volume (or pg dumps).
+```bash
+PG_URL="postgresql://localhost:5432/school_dashboard" \
+PG_USER="school_dashboard" \
+PG_PASSWORD="<strong-password>" \
+H2_PASSWORD="" \
+./scripts/prod/import-h2-legacy-to-postgres.bash Backend/data/backup/20260307-181933
+```
 
-2. **Configure the Frontend**:
+</details>
 
-- Set `BACKEND_URL` for the frontend runtime (for example `http://backend:8080` in Docker Compose). The TanStack Start server routes under `/api/*` forward requests to this backend origin.
+<details>
+<summary>The DSBmobile integration story</summary>
 
-3. **Optional: import legacy H2 data into PostgreSQL**:
+DSBmobile was the hardest integration in the project. Early attempts with Python libraries ran into authentication problems, inconsistent payloads, and undocumented changes. The practical solution ended up being a much older Java implementation that handled the real service behavior more reliably than the newer options.
 
-- For legacy backups, run:
+The frustrating part is not the data model itself; it is the lack of a stable public API for a system used by many schools. That opacity forces school-side projects into reverse-engineered integrations for data that should be straightforward to access.
 
-  ```bash
-  PG_URL="postgresql://localhost:5432/school_dashboard" \
-  PG_USER="school_dashboard" \
-  PG_PASSWORD="<strong-password>" \
-  H2_PASSWORD="" \
-  ./scripts/prod/import-h2-legacy-to-postgres.bash Backend/data/backup/20260307-181933
-  ```
+</details>
 
-- The script imports `SUBSTITUTION_PLAN_DOCUMENTS` and (if present) `API_RESPONSE_CACHE`.
+## Contributing
 
-### Deployment Steps
+Contributions are welcome, especially from people continuing the project for GGL or adapting it for another school. Please read [CONTRIBUTING.md](CONTRIBUTING.md), keep secrets out of commits, and run the relevant checks before opening a pull request.
 
-1. **Build the Docker Images**:
+## Acknowledgements
 
-  ```bash
-  cd Docker
-  docker compose -f docker-compose.yaml build
-  ```
+- [DSBmobile-API](https://github.com/Sematre/DSBmobile-API) by [Sematre](https://github.com/Sematre/) for the Java implementation that made the core substitution-plan integration workable.
+- [BVG transport API](https://v6.bvg.transport.rest/) for Berlin public transport data.
+- [Open-Meteo](https://open-meteo.com/) for weather data.
+- [Weather-Sense/Icons](https://github.com/Leftium/weather-sense) by [Leftium](https://github.com/Leftium/) for weather icons.
+- [Saloking / Nikolas](https://github.com/nikolas-bott) for the decisive hint to use the Java DSBmobile API instead of losing more time to broken Python options.
+- Goethe Gymnasium Lichterfelde for the opportunity to improve the school's information display.
 
-2. **Run the Application with Docker Compose**:
+## License
 
-  ```bash
-  docker compose -f docker-compose.yaml up -d
-  ```
-
-  This command builds the images and starts the containers in detached mode.
-
-### Verification
-
-1. **Check Container Status**:
-
-  ```bash
-  docker compose -f docker-compose.yaml ps
-  ```
-
-  Verify that both the frontend and backend containers are running without issues.
-
-2. **Access the Application**:
-
-  Open your browser and navigate to the domain or IP address where your application is deployed.
-
----
-
-## 📝 Development Status
-
-This project is currently under active development. The core functionality is implemented, but we're working on:
-
-- Design refinements and UI/UX improvements
-- Additional feature implementations
-- Performance optimizations
-- Comprehensive testing
-
-## 💡 Why We Built This
-
-The existing solution for displaying the substitution plan at GGL was:
-
-- Visually outdated and difficult to read
-- Limited to showing only substitution information
-- Not responsive or adaptable to different screen sizes
-- Unable to display other important information for students and staff
-
-Our dashboard solves these problems by providing a modern, readable interface that combines substitution plans with weather, transportation, and other useful information in one unified display.
-
-## 🔄 Development Roadmap
-
-| Phase | Focus | Status |
-|-------|-------|--------|
-| 1 | Core API Integration & Basic UI | ✅ Done |
-| 2 | Enhanced UI & Additional Features | 🔄 In Progress |
-| 3 | Testing & Performance Optimization | 🔄 In Progress |
-| 4 | Deployment & Documentation | 🧩 Partially done |
-| 5 | User Feedback & Iteration | 🔜 Planned |
-| 6 | Final Review & Launch | 🔜 Planned |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! While this project was created for GGL, we've designed it to be adaptable for any school. Please feel free to submit a Pull Request.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgements
-
-- [DSBmobile-API](https://github.com/Sematre/DSBmobile-API) by [Sematre](https://github.com/Sematre/) for the Java implementation
-- [BVG-API](https://v6.bvg.transport.rest/) for the Berlin transportation data
-- [Open-Meteo](https://open-meteo.com/) for the weather data
-- [Weather-Sense/Icons](https://github.com/Leftium/weather-sense) by [Leftium](https://github.com/Leftium/) for the weather icons
-- All contributors who have invested their time into making this project better
-  - Special thanks to [Saloking (Nikolas)](https://github.com/nikolas-bott) for giving me the idea to use the Java API instead of Python ones
-- Goethe Gymnasium Lichterfelde for the opportunity to improve the school's information system
-
----
+School Dashboard is licensed under the BSD 3-Clause License. See [LICENSE](LICENSE) for details.
 
 <p align="center">
-  Made with ❤️ for improving school information systems, starting with GGL
+  <a href="https://github.com/zzackllack/school-dashboard/graphs/contributors"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/contributors/zzackllack/school-dashboard.svg?bots=true&amp;mode=dark" /><img alt="contributors" src="https://shieldcn.dev/contributors/zzackllack/school-dashboard.svg?bots=true&amp;mode=light" /></picture></a>
 </p>
